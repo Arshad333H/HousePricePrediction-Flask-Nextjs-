@@ -16,7 +16,7 @@ const PricePredictionForm = () => {
 
   // Fetch locations on component mount
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/get_location_names')
+    fetch('https://housepriceprediction-flask-nextjs-12.onrender.com/get_location_names')
       .then(response => response.json())
       .then(data => setLocations(data.locations))
       .catch(err => console.error('Error fetching locations:', err));
@@ -37,7 +37,7 @@ const PricePredictionForm = () => {
     setEstimatedPrice(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/predict_home_price', {
+      const response = await fetch('https://housepriceprediction-flask-nextjs-12.onrender.com/predict_home_price', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
